@@ -1,3 +1,5 @@
 build/
 
 *.rst
+
+sec_core_img.c
