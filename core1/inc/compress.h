@@ -3,7 +3,9 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-void miniz_test(void);
+#ifndef RELEASE
+void miniz_demo(void);
+#endif
 
 
 #ifdef __cplusplus

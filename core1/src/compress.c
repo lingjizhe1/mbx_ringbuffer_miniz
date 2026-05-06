@@ -2,6 +2,7 @@
 #define APP_LOG_TAG "COMPRESS"
 #include "log.h"
 
+#ifndef RELEASE
 
 #define RAW_SIZE 256
 #define ZIP_SIZE 512
@@ -12,7 +13,7 @@ static uint8_t unzip_buf[RAW_SIZE];
 static tdefl_compressor comp __attribute__((section(".fast_ram")));
 static tinfl_decompressor decomp __attribute__((section(".fast_ram")));
 
-void miniz_test(void)
+void miniz_demo(void)
 {
     memset(raw_buf, 0, RAW_SIZE);
     memset(zip_buf, 0, ZIP_SIZE);
@@ -74,3 +75,7 @@ void miniz_test(void)
     }
     printf("\n");
 }
+
+#endif
+
+
