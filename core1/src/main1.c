@@ -7,9 +7,10 @@
 
 #include "board.h"
 #include "../inc/mbx1.h"
-
+#include "compress.h"
 #define APP_LOG_TAG "CORE1"
 #include "../../src/log.h"
+
 
 #define LED_FLASH_PERIOD_IN_MS 300
 #define MBX_IRQ IRQn_MBX0B
@@ -27,7 +28,7 @@ int main(void)
     intc_m_enable_irq_with_priority(MBX_IRQ, 1);
     mbx1_init();
     LOG_DEBUG("core1 consumer init done\n");
-
+    miniz_test();
     while (1) {
         mbx1_process();
         if (mbx1_packet_available()) {

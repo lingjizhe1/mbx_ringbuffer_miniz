@@ -18,12 +18,16 @@ sdk_compile_definitions(-DMINIZ_NO_STDIO
     -DMINIZ_NO_TIME
     -DMINIZ_NO_ARCHIVE_APIS
     -DMINIZ_NO_ARCHIVE_WRITING_APIS
+    -DMINIZ_NO_MALLOC=1
+    -DTDEFL_LESS_MEMORY=1
     -DMINIZ_USE_UNALIGNED_LOADS_AND_STORES=0)
 sdk_app_inc(inc)
 sdk_app_inc(../src)
 sdk_app_src(src/main1.c)
 sdk_app_src(src/mbx1.c)
-# sdk_app_src(../third_party/src/miniz_tdef.c)
-# sdk_app_src(../third_party/src/miniz_tinfl.c)
+sdk_app_src(src/compress.c)
+sdk_app_src(../third_party/src/miniz_tdef.c)
+sdk_app_src(../third_party/src/miniz_tinfl.c)
+sdk_app_src(../third_party/src/miniz.c)
 sdk_inc(../third_party/inc)
 generate_ide_projects()
