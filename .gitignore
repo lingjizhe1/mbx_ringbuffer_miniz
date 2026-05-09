@@ -1,4 +1,5 @@
 build/
+core1/.cache
 
 *.rst
 
